@@ -4,6 +4,12 @@ const path = require('path');
 // Above, I require express and path.
 
 
+
+const api = require('./');
+
+
+
+
 const app = express();
 // Above, I create an instance of express.
 
@@ -14,19 +20,13 @@ const PORT = 3001;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/notes', api);
 
 // Above, is my middleware which ignores the public folder, parse json body data, and url encoded data of the body to post requests.
 
 
 
 
-app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/notes.html'))
-   
-});
-
-// Above, Is a get route to notes that respondes with the notes.html page.
-// We use path to accomplish this. 
 
 app.get('*', (req, res) => {
     
