@@ -4,6 +4,12 @@ const path = require('path');
 // Above, I require express and path.
 
 
+
+const api = require("./allroutes/index");
+// Above, I retrieve all the routes from index.js in the routes folder 
+
+
+
 const app = express();
 // Above, I create an instance of express.
 
@@ -14,10 +20,10 @@ const PORT = 3001;
 app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', api);
 
 // Above, is my middleware which ignores the public folder, parse json body data, and url encoded data of the body to post requests.
-
-
+// Above, I use middleware to allow all my imported api routes to start with /api.
 
 
 app.get('/notes', (req, res) => {
@@ -27,6 +33,8 @@ app.get('/notes', (req, res) => {
 
 // Above, Is a get route to notes that respondes with the notes.html page.
 // We use path to accomplish this. 
+
+
 
 app.get('*', (req, res) => {
     
