@@ -25,16 +25,16 @@ notes.get('/', (req, res) => {
         //Above, I read the current db file and then parse the data from it.
          // Above, Parse JSON string into JavaScript object because the retrieved data is a string.
 
-        if(jsonData){
+        if(jsonData.length > 0){
             jsonData.forEach(item => {
                 item.id = uniqueId; 
             });
-            console.log(jsonData);
+            
             res.status(200).json(jsonData); 
         // Above, is a if statment to make sure there is data to be read
         // Also, I attach a id to each object in the data.  
          }else{
-             res.status(500).json('Error in getting response!');
+             res.status(500).json('No respones in getting response array!');
          }
 
          // Above, is the reponse if no data is in the file or there is a server problem.

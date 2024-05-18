@@ -41,7 +41,7 @@ const getNotes = () =>
     }
 });
 
-/*const saveNote = (note) =>
+const saveNote = (note) =>
   fetch('/api/notes', {
     method: 'POST',
     headers: {
@@ -50,7 +50,7 @@ const getNotes = () =>
     body: JSON.stringify(note)
 });
 
-const deleteNote = (id) =>
+/*const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
@@ -204,4 +204,4 @@ if (window.location.pathname === '/notes') {
   noteForm.addEventListener('input', handleRenderBtns);
 }
 
-//getAndRenderNotes();
+getAndRenderNotes();
