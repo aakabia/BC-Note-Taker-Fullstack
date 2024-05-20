@@ -13,8 +13,9 @@ const api = require("./allroutes/index");
 const app = express();
 // Above, I create an instance of express.
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 // Above, I create a default port. We were told to use 3001.
+//  I add the process.env for deployment.
 
 
 app.use(express.static('public'));
