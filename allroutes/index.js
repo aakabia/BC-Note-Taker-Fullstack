@@ -4,12 +4,13 @@ const router = require('express').Router();
 
 const notesRouter = require('./getnotes');
 const postRouter = require('./postnotes');
-
+const deleteRouter = require('./dnotes');
 
 // Above, I import the routes from getnotes
 
 router.use('/notes', notesRouter);
 router.use('/notes', postRouter );
+router.use ('/notes', deleteRouter)
 
 // Above, I assign these routes a path 
 

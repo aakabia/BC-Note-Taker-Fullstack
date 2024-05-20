@@ -50,14 +50,14 @@ const saveNote = (note) =>
     body: JSON.stringify(note)
 });
 
-/*const deleteNote = (id) =>
+const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json'
     }
 });
-*/
+
 
 
 
@@ -100,9 +100,11 @@ const handleNoteSave = () => {
 const handleNoteDelete = (e) => {
   // Prevents the click listener for the list from being called when the button inside of it is clicked
   e.stopPropagation();
+  e.preventDefault();
 
   const note = e.target;
   const noteId = JSON.parse(note.parentElement.getAttribute('data-note')).id;
+  console.log(noteId);
 
   if (activeNote.id === noteId) {
     activeNote = {};
